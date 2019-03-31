@@ -17,6 +17,12 @@
  @import "bootstrap";
 
 $gray-medium-light: #EAEAEA;
+$white: #FFFFFF;
+.jumbotron {
+  a{
+    color: $white;
+  }
+}
 
 footer {
   margin-top: 45px;

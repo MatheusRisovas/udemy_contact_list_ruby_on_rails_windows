@@ -17,3 +17,7 @@
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
+function salve()
+{
+  alert('Salve caralho');
+}
