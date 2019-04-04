@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :require_logged_in_user, only: [:edit,:update]
+
   def new
     @user = User.new;
   end
@@ -13,7 +15,20 @@ class UsersController < ApplicationController
       render 'new'
     end
 end
-    private
+
+  def edit
+  end
+
+  def update
+    if current_user.update(user_params)
+      flash[:success] = 'Dados atualizados'
+      redirect_to contacts_path
+    else
+      render 'edit'
+    end
+  end
+
+  private
       def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
       end
